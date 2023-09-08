@@ -36,3 +36,8 @@ console.log(nomeCorrido);
 //   | yield   |    do    |   in   |  instanceof   |        |
 //    ---3------6---------9------------------:v--- ------ --- *3
 
+// Caracteres de controle
+console.log("Alex\u0020San");       //Adicionar espaço
+console.log('36 \u0009 !');         //Adicionar tabulação
+console.log('Aqui! \u000b Ali!');   //Tabulação Vertical
+console.log('Consulte em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar#caracteres_de_controle');
