@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <style>
+            .hilite, p {
+                background-color: aquamarine;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Isso é um paragráfo de HTML</p>
+        <script>
+            // E este é um código JavaScript do lado cliente
+            // literalmente incorporado no arquivo HTML
+        </script>
+        <p id="pa">Mais HTML</p>
+
+        <script>
+            function moveon() {
+                // Exibe uma caixa modal para fazer uma pergunta
+                let resposta = confirm("Vamos nessa?");
+                // Se for clicado no "OK" faz o browser carregar uma nova página
+                if (resposta) window.location = "http://google.com";
+            }
+            // Executa a função em 60.000 milissegundos (1min)
+            setTimeout(moveon, 60000)
+        </script>
+
+        <script>
+            // Exibe uma menssagem em uma seção de saída do documento.
+            // Se o documento não contém a seção, cria uma.
+            function debuglog(msg) {
+            // Localiza a seção do documentoncom id="debuglog".
+            let log = document.getElementById("debuglog");
+            // Se não existir a seção "debuglog", vamos criar uma.
+            // O sinal de exclamação(!) inverte o valor lógico.
+            if(!log) {                                 
+                log = document.createElement("div");    // Cria um novo elemento(div)
+                log.id = "debuglog";                    // Define o id para debuglog
+
+                log.innerHTML = "<h1>Debug Log</h1>"    // Define o conteúdo inicial
+                document.body.appendChild(log);         // Adiciona no final do du=ocumento
+            }
+            // Agora coloca a menssagem e anexa ao log
+            let pre = document.createElement("pre");    // Cria a tag <pre>
+            let texto = document.createTextNode(msg); // Cria o nó de texto
+            pre.appendChild(texto);
+            log.appendChild(pre);
+            }
+
+            debuglog(prompt("Digite um texo"));
+
+            function hide(reflow) {
+                if(reflow) {
+                    reflow.style.display = "none";
+                }
+                else {
+                    reflow.style.visibility = "hidden";
+                }
+            }
+
+            function highlight(e) {
+                if(!e.className) e.className = "hilite";
+                else e.className += "hilite";
+            }
+            var p = document.getElementById("pa");
+            
+            hide(p);
+            highlight(this.document.body);
+        </script>
+    </body>
+</html>
